@@ -25,13 +25,12 @@ Boilerplate code for setting up a Nextjs application on Heroku.
     - Run `npm install`
 - Connect the local project to GitHub
   - Create a new repository on GitHub
+    - Note: Don't initialize it with a README, .gitignore, or license file since the project already contains these files
   - Open a new terminal + navigate to the new project's root dir
   - Run: 
-    - `git init`
+    - `git remote set-url origin [HTTPS url from your new GitHub repo]`
     - `git add .`
     - `git commit -m "Initial commit"`
-    - `git branch -M main`
-    - `git remote add origin [HTTPS url from GitHub repo]`
     - `git push -u origin main`
 - Create an account with Heroku
   - Create a new app for your project
