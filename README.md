@@ -32,10 +32,16 @@
 ## To Do
 - Gumroad: Update ping endpoint to DNS corrrect one
 - gumroad-ping.js: remove the console log logging the ping data
-- index.js: Add license data to index.js
+- activate-license.js: add product_id mapping for rails boilerplate
+- verify-gumroad-license.js: change increment_uses_count to true
+- index.js: improve
 - gumroad-ping.js: add rate limiting
 
 
+
+Gumroad Data:
+productName: 'Django-React-PostgreSQL Boilerplate Code [Deploy on Heroku with Ease]'
+productid: 'TycqIdYZ_hocg_O_7LFh9Q=='
 
 
 Folder Dir: 

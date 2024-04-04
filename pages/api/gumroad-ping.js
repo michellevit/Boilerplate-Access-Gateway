@@ -42,7 +42,7 @@ async function gumroadPingHandler(req, res) {
   }
 
   const { license_key, product_name, product_id, 'GitHub Username': githubUsername } = req.body;
-  console.log("Request body:", req.body);
+
   console.log({ licenseKey: license_key, githubUsername, productName: product_name, productid: product_id });
 
   if (!githubUsername || !license_key) {
@@ -53,7 +53,6 @@ async function gumroadPingHandler(req, res) {
   await activateLicense({
     license_key,
     githubUsername,
-    product_name,
     product_id
   });
 

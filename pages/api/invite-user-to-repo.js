@@ -1,14 +1,22 @@
 import { Octokit } from '@octokit/core';
 
-export function inviteMemberToRepository(params) {
+export function inviteUserToRepository( {owner, repo, username} ) {
   const octokit = new Octokit({
     auth: process.env.GITHUB_API_TOKEN,
   });
 
   return octokit.request('PUT /repos/{owner}/{repo}/collaborators/{username}', {
-    owner: params.owner,
-    repo: params.repo,
-    username: params.username,
+    owner: owner,
+    repo: repo,
+    username: username,
     permission: 'pull',
   });
 }
+
+
+
+const invite = await inviteUserToRepository({
+  owner,
+  repo,
+  username: githubUsername,
+});
