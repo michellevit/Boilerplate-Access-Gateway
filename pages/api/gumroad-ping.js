@@ -42,14 +42,16 @@ async function gumroadPingHandler(req, res) {
   }
 
   const { license_key, product_name, product_id, custom_fields } = req.body;
+  console.log("Request body:", req.body);
+
   let github_username;
 
   if (custom_fields) {
     const fields = JSON.parse(custom_fields);
     github_username = fields['Github Username']; 
   }
-
-  console.log({ licenseKey: license_key, githubUsername: github_username, productName: product_name, productid: product_id, field: fields });
+console.log("Request body:", req.body);
+  console.log({ licenseKey: license_key, githubUsername: github_username, productName: product_name, productid: product_id });
 
   if (!githubUsername || !license_key) {
     console.log(`Details not provided. Exiting successfully`);
