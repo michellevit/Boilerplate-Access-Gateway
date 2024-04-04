@@ -12,6 +12,7 @@ async function activateLicense({ githubUsername, licenseKey }) {
       {
         licenseKey,
         githubUsername,
+        product_name
       },
       `License Key submitted for activation. Verifying License...`
     );
@@ -62,3 +63,5 @@ async function activateLicense({ githubUsername, licenseKey }) {
       repository: invite.data.repository,
     };
   }
+
+  export default activateLicense;

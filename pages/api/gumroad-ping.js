@@ -28,29 +28,38 @@
 //   };
 // })(60000, 5); // For example, limit to 5 requests per minute per IP
 
+import activateLicense from './activate-license';
+import bodyParser from 'body-parser';
 
-const CUSTOM_FIELD_KEY = 'custom_fields[Github Username]';
+
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 async function gumroadPingHandler(req, res) {
+  await new Promise((resolve) => urlencodedParser(req, res, resolve));
+
   if (req.method !== `POST`) {
-    console.log('Received ping with data:', req.body);
     return res.status(501).end();
   }
 
-  const payload = req.body;
-  const licenseKey = payload.license_key;
-  const fields = payload.custom_fields ?? {};
-  const githubUsername = fields[CUSTOM_FIELD_KEY];
+  const { license_key, product_name, custom_fields } = req.body;
+  let githubUsername;
 
-  if (!githubUsername || !licenseKey) {
-    console.log({ licenseKey }, `Details not provided. Exiting successfully`);
+  if (custom_fields) {
+    const fields = JSON.parse(custom_fields);
+    githubUsername = fields['Github Username']; 
+  }
 
+  console.log({ licenseKey: license_key, githubUsername: githubUsername, productName: product_name });
+
+  if (!githubUsername || !license_key) {
+    console.log(`Details not provided. Exiting successfully`);
     return res.status(200).end();
   }
 
   await activateLicense({
     licenseKey,
-    githubUsername
+    githubUsername,
+    productName
   });
 
   res.status(200).end();

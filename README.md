@@ -1,5 +1,13 @@
 ## Setup:
 - Create Nextjs project (clone boilerplate-nextjs-heroku)
+  - `npx create-next-app@latest boilerplate-nextjs-heroku --use-npm --example "https://github.com/vercel/next-learn/tree/main/basics/learn-starter"`
+- Connect local project to new GitHub repo
+  - Create a new repository oin GitHub
+  - Change the local GitHub origin (from original cloned repo to new repo)
+  - git add .
+  - git commit -m "Initial commit"
+  - git branch -M main
+  - git push origin main
 - Setup on Heroku
   - Nodejs buildpack
   - Custom domain: tokenizer.michellef.dev
@@ -22,7 +30,32 @@
     
 
 ## To Do
-- Update ping endpoint to DNS corrrect one: 
+- Gumroad: Update ping endpoint to DNS corrrect one
+- gumroad-ping.js: remove the console log logging the ping data
+- index.js: Add license data to index.js
+- gumroad-ping.js: add rate limiting
 
-- Add license data to index.js
-- Rate limiting for gumroad-ping.js
+
+
+
+Folder Dir: 
+
+Boilerplate-Nextjs-Heroku
+| - pages
+| | - index.js
+| | - api
+| | | - activate-license.js
+| | | - gumroad-ping.js
+| | | - invite-user-to-repo.js
+| | | - verify-gumroad-license.js
+| - public
+| | - favicon.ico
+| | - vercels.svg
+| - styles
+| | - global.css
+| | - Home.module.css
+| - .gitignore
+| - .nvmrc
+| - package-lock.json
+| - package.json
+| - README.md
