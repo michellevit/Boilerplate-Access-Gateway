@@ -14,6 +14,15 @@
       - Click '...' menu item
       - Click 'License key' 
       - Save
+  - Add Ping Endpoint
+    - Go to Settings in menu bar on left
+    - Go to Advanced Tab
+    - In the 'Ping' section, add endpoint for ping script: 
+      - https://tokenizer.michellef.dev/api/gumroad-ping
+    
 
 ## To Do
+- Update ping endpoint to DNS corrrect one: 
+
+- Add license data to index.js
 - Rate limiting for gumroad-ping.js

@@ -33,6 +33,7 @@ const CUSTOM_FIELD_KEY = 'custom_fields[Github Username]';
 
 async function gumroadPingHandler(req, res) {
   if (req.method !== `POST`) {
+    console.log('Received ping with data:', req.body);
     return res.status(501).end();
   }
 
