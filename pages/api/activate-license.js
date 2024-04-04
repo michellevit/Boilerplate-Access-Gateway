@@ -1,5 +1,5 @@
 
-async function activateLicense({ githubUsername, licenseKey }) {
+async function activateLicense({ githubUsername, licenseKey, product_name, product_id }) {
     const owner = process.env.GITHUB_USERNAME;
     const repo = process.env.GITHUB_REPOSITORY_NAME;
     const product = process.env.GUMROAD_PRODUCT;
@@ -12,7 +12,8 @@ async function activateLicense({ githubUsername, licenseKey }) {
       {
         licenseKey,
         githubUsername,
-        product_name
+        product_name,
+        product_id
       },
       `License Key submitted for activation. Verifying License...`
     );
