@@ -18,36 +18,18 @@ async function verifyGumroadLicense(license_key, product_id) {
     });
 
     if (!response.ok) {
-      const contentType = response.headers.get('content-type');
-      let errorDetail = '';
-      if (contentType && contentType.includes('application/json')) {
-        const errorData = await response.json();
-        errorDetail = JSON.stringify(errorData);
-        if (errorData.success === false && errorData.message) {
-          throw new Error(`API call failed with status ${response.status}: ${errorData.message}`);
-        }
-      } else {
-        errorDetail = await response.text();
-      }
+      const errorDetail = await response.text();
       throw new Error(`API call failed with status ${response.status}: ${errorDetail}`);
     }
 
-    if (response.headers.get('content-type')?.includes('application/json')) {
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
       return await response.json();
     } else {
       throw new Error('Received non-JSON response');
     }
   } catch (error) {
     console.error(`Fetch error: ${error.message}`);
-    if (error.response) {
-      console.error(`Response status: ${error.response.status}`);
-      try {
-        const errorData = await error.response.json();
-        console.error(`Error details: ${JSON.stringify(errorData)}`);
-      } catch (jsonError) {
-        console.error('Failed to parse error response as JSON.');
-      }
-    }
     throw error;
   }
 }
