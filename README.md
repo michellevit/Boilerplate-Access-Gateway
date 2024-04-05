@@ -44,9 +44,6 @@ This project provides access to several Boilerplate Code Template Repositories f
   - Settings Tab - SSL Certificates: Configure Certificate -> Select 'Automate Certificate Management'
   - Settings Tab - Domains: connect to custom domain (OPTIONAL)
 - Create product on Gumroad
-  - Add custom field:
-    - Go to Checkout tab in menu -> add custom field for specified product: GitHub Username
-    - https://app.gumroad.com/checkout/form
   - Create Product
     - Product Tab
       - Add product description, thumbnail, price, etc
@@ -60,6 +57,9 @@ This project provides access to several Boilerplate Code Template Repositories f
     - In the 'Ping' section, add endpoint for ping script: 
       - Example: https://[custom-domain].com/api/gumroad-ping
       - Example: https://[heroku-app-url].herokuapp.com/api/gumroad-ping
+  - Add custom field:
+    - Go to Checkout tab in menu -> add custom field for specified product: GitHub Username
+    - https://app.gumroad.com/checkout/form
     
 
 
