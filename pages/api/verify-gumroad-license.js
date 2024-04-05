@@ -9,7 +9,7 @@ async function verifyGumroadLicense(license_key, product_id) {
   const requestBody = new URLSearchParams();
   requestBody.append('product_id', product_id);
   requestBody.append('license_key', license_key);
-  requestBody.append('increment_uses_count', false);
+  requestBody.append('increment_uses_count', true);
 
   try {
     const response = await fetch(url, {

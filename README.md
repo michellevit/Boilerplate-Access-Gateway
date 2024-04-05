@@ -1,8 +1,42 @@
-## Setup:
-- Create Nextjs project (clone boilerplate-nextjs-heroku)
-  - `npx create-next-app@latest boilerplate-nextjs-heroku --use-npm --example "https://github.com/vercel/next-learn/tree/main/basics/learn-starter"`
+# Gumroad License Authenticator
+
+![Next.js Version](https://img.shields.io/badge/Next.js-14.1.4-blue.svg)
+![Node.js Version](https://img.shields.io/badge/Node.js-18-green.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.5.4-blue.svg)
+![Gumroad API](https://img.shields.io/badge/API-Gumroad-lightgrey.svg)
+![Heroku](https://img.shields.io/badge/Platform-Heroku-lightgrey.svg)
+
+This project facilitates access to several Boilerplate Code Template Repositories for license holders via Gumroad.
+
+## Table of Contents
+- [Setup](#setup)
+- [To Do](#todo)
+
+
+## Setup<a name="setup"></a>
+- Create new repository from the Nextjs Template repository 
+  - Click the 'Use this template' green button at the top right of the Nextjs-Heroku template repository
+  - Select 'Create a new repository' 
+    - Provide a name, description, and set it to public or private
+    - Click 'Create repository' 
+- Set up the project locally
+  - After creating a repository from the template, you need to set it up on local machine for development
+  - Open a terminal on computer
+  - Navigate into the folder you would like project to reside in
+    - e.g. `cd ~/Projects`
+  - Clone the repository
+    - `git clone https://github.com/USERNAME/REPOSITORY_NAME.git`
+    - Note: replace USERNAME and REPOSITORY_NAME with actual GitHub username and the name of the new repository just created (NOT the boilerplate template)
+  - Navigate into the project directory
+    - `cd REPOSITORY_NAME`
+  -Check the remote setup to verify that the repository URL has been set correctly
+    - `git remote -v`
+  - Now you can start making changes to the project:
+    - To add changes: `git add .`
+    - To commit change: `git commit -m "Your message"`
+    - To push changes to GitHub: `git push origin main`
 - Connect local project to new GitHub repo
-  - Create a new repository oin GitHub
+  - Create a new repository on GitHub
   - Change the local GitHub origin (from original cloned repo to new repo)
   - git add .
   - git commit -m "Initial commit"
@@ -29,40 +63,11 @@
       - https://tokenizer.michellef.dev/api/gumroad-ping
     
 
-## To Do
+
+## To Do<a name="todo"></a>
 - Gumroad: Update ping endpoint to DNS corrrect one
-- gumroad-ping.js: remove the console log logging the ping data
 - activate-license.js: add product_id mapping for rails boilerplate
-- verify-gumroad-license.js: change increment_uses_count to true
 - Add link to video tutorial to product content (user's post-purchase page) and details page
-- index.js: improve
 - gumroad-ping.js: add rate limiting
 
 
-
-Gumroad Data:
-productName: 'Django-React-PostgreSQL Boilerplate Code [Deploy on Heroku with Ease]'
-productid: 'TycqIdYZ_hocg_O_7LFh9Q=='
-
-
-Folder Dir: 
-
-Boilerplate-Nextjs-Heroku
-| - pages
-| | - index.js
-| | - api
-| | | - activate-license.js
-| | | - gumroad-ping.js
-| | | - invite-user-to-repo.js
-| | | - verify-gumroad-license.js
-| - public
-| | - favicon.ico
-| | - vercels.svg
-| - styles
-| | - global.css
-| | - Home.module.css
-| - .gitignore
-| - .nvmrc
-| - package-lock.json
-| - package.json
-| - README.md

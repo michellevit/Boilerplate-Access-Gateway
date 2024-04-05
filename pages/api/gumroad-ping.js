@@ -43,7 +43,8 @@ async function gumroadPingHandler(req, res) {
 
   const { license_key, product_name, product_id, 'GitHub Username': githubUsername } = req.body;
 
-  console.log({ licenseKey: license_key, githubUsername, productName: product_name, productid: product_id });
+  // Log ping data to Heroku Application Logs
+  // console.log({ licenseKey: license_key, githubUsername, productName: product_name, productid: product_id });
 
   if (!githubUsername || !license_key) {
     console.log(`Details not provided. Exiting successfully`);
