@@ -1,11 +1,11 @@
 import { Octokit } from '@octokit/core';
 
-function inviteUserToRepository({ owner, repo, username }) {
+function inviteUserToRepository({ owner, repo, githubUsername }) {
   const octokit = new Octokit({
     auth: process.env.GITHUB_API_TOKEN,
   });
 
-  const endpointUrl = `PUT /repos/${owner}/${repo}/collaborators/${username}`;
+  const endpointUrl = `PUT /repos/${owner}/${repo}/collaborators/${githubUsername}`;
   
   console.log('Endpoint URL:', endpointUrl);
 
