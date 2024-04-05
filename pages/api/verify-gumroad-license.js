@@ -7,8 +7,11 @@ async function verifyGumroadLicense(license_key, product_id) {
 
   const url = `${BASE_API}/${VERIFY_ENDPOINT}`;
   
-  const headers = { 'Content-Type': 'application/json' };
-  
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${process.env.GUMROAD_ACCESS_TOKEN}` 
+  };  
+
   const body = JSON.stringify({
     product_id: product_id,
     license_key: license_key,
@@ -25,19 +28,17 @@ async function verifyGumroadLicense(license_key, product_id) {
     });
 
     if (!response.ok) {
-      // New code to log detailed error information
       const contentType = response.headers.get("content-type");
       let errorDetail = '';
       if (contentType && contentType.includes("application/json")) {
         const errorData = await response.json();
         errorDetail = JSON.stringify(errorData);
       } else {
-        errorDetail = await response.text(); // Fallback to raw text if not JSON
+        errorDetail = await response.text();
       }
       throw new Error(`API call failed with status ${response.status}: ${errorDetail}`);
     }
 
-    // Proceed to parse JSON assuming the response is successful and content type is JSON
     if (response.headers.get("content-type")?.includes("application/json")) {
       return await response.json();
     } else {
@@ -45,7 +46,7 @@ async function verifyGumroadLicense(license_key, product_id) {
     }
   } catch (error) {
     console.error("Fetch error:", error.message);
-    throw error; // Re-throw the error to handle it elsewhere if necessary
+    throw error;
   }
 }
 
