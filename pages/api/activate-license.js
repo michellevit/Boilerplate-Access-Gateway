@@ -32,11 +32,6 @@ async function activateLicense({ license_key, githubUsername, product_id }) {
     product_id,
   });
 
-  // Assuming verifyGumroadLicense is a function you've previously defined
-  // and available in this scope.
-
-  // The method below will increment "uses" by 2.
-  // So we check if the license has already been redeemed
   if (license.uses > 2) {
     throw new Error(`License has already been redeemed`);
   }
@@ -48,9 +43,6 @@ async function activateLicense({ license_key, githubUsername, product_id }) {
     },
     `License Key valid. Inviting user to repository...`
   );
-
-  // Assuming inviteMemberToRepository is a function you've previously defined
-  // and available in this scope.
 
   const invite = await inviteUserToRepository({
     owner,
@@ -68,7 +60,7 @@ async function activateLicense({ license_key, githubUsername, product_id }) {
     );
   }
 
-  // send as much data as you need here
+// Unsure of what this does
   return {
     repository: invite.data.repository,
   };

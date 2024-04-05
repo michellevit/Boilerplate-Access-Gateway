@@ -15,15 +15,44 @@ async function verifyGumroadLicense(license_key, product_id) {
     increment_uses_count: false,
   });
 
-  const response = await fetch(url, {
-    method: `POST`,
-    headers,
-    body,
-  });
+ // NEW CODE
 
-  return response.json();
+  try {
+    const response = await fetch(url, {
+      method: `POST`,
+      headers,
+      body,
+    });
+
+    console.log("Response Status:", response.status); // Logging the status
+
+    if (!response.ok) {
+      throw new Error(`API call failed with status ${response.status}`);
+    }
+
+    // Check if the response is JSON before attempting to parse
+    if (response.headers.get("content-type")?.includes("application/json")) {
+      return response.json();
+    } else {
+      throw new Error("Received non-JSON response");
+    }
+  } catch (error) {
+    console.error("Fetch error:", error);
+    throw error; // Re-throw the error for further handling or logging
+  }
 }
+
 export default verifyGumroadLicense;
+
+//   const response = await fetch(url, {
+//     method: `POST`,
+//     headers,
+//     body,
+//   });
+
+//   return response.json();
+// }
+// export default verifyGumroadLicense;
 
 
 
