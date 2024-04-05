@@ -7,11 +7,8 @@ async function verifyGumroadLicense(license_key, product_id) {
 
   const url = `${BASE_API}/${VERIFY_ENDPOINT}`;
   
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${process.env.GUMROAD_ACCESS_TOKEN}` 
-  };  
-
+  const headers = { 'Content-Type': 'application/json' };
+  
   const body = JSON.stringify({
     product_id: product_id,
     license_key: license_key,
@@ -28,51 +25,37 @@ async function verifyGumroadLicense(license_key, product_id) {
     });
 
     if (!response.ok) {
+      // New code to log detailed error information
       const contentType = response.headers.get("content-type");
       let errorDetail = '';
       if (contentType && contentType.includes("application/json")) {
         const errorData = await response.json();
         errorDetail = JSON.stringify(errorData);
       } else {
-        errorDetail = await response.text();
+        errorDetail = await response.text(); // Fallback to raw text if not JSON
       }
       throw new Error(`API call failed with status ${response.status}: ${errorDetail}`);
     }
 
+    // Proceed to parse JSON assuming the response is successful and content type is JSON
     if (response.headers.get("content-type")?.includes("application/json")) {
       return await response.json();
     } else {
       throw new Error("Received non-JSON response");
     }
   } catch (error) {
-    console.error("Fetch error:", error.message);
-    throw error;
+    console.error(`Fetch error: ${error.message}`);
+    if (error.response) {
+      console.error(`Response status: ${error.response.status}`);
+      try {
+        const errorData = await error.response.json();
+        console.error(`Error details: ${JSON.stringify(errorData)}`);
+      } catch (jsonError) {
+        console.error("Failed to parse error response as JSON.");
+      }
+    }
+    throw error; 
   }
 }
 
 export default verifyGumroadLicense;
-
-//   const response = await fetch(url, {
-//     method: `POST`,
-//     headers,
-//     body,
-//   });
-
-//   return response.json();
-// }
-// export default verifyGumroadLicense;
-
-
-
-// This function returns json data - example: 
-
-// {
-//   "success": true,
-//   "uses": 3,
-//   "purchase": {
-//     "product_id": "32-nPAicqbLj8B_WswVlMw==",
-//     "product_name": "Product Name Here",
-//     "license_key": "FC15A693-7B304DF6-BD6EEDCA-96EDFAAF",
-//     // Other purchase details...
-//   }
-// }
