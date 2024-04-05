@@ -31,6 +31,10 @@ async function verifyGumroadLicense(license_key, product_id) {
       if (contentType && contentType.includes("application/json")) {
         const errorData = await response.json();
         errorDetail = JSON.stringify(errorData);
+        // Check if the error message is present and throw a specific error
+        if (errorData.success === false && errorData.message) {
+          throw new Error(`API call failed with status ${response.status}: ${errorData.message}`);
+        }
       } else {
         errorDetail = await response.text(); // Fallback to raw text if not JSON
       }
