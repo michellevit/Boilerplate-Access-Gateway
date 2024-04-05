@@ -24,21 +24,28 @@ async function verifyGumroadLicense(license_key, product_id) {
       body,
     });
 
-    console.log("Response Status:", response.status); // Logging the status
-
     if (!response.ok) {
-      throw new Error(`API call failed with status ${response.status}`);
+      // New code to log detailed error information
+      const contentType = response.headers.get("content-type");
+      let errorDetail = '';
+      if (contentType && contentType.includes("application/json")) {
+        const errorData = await response.json();
+        errorDetail = JSON.stringify(errorData);
+      } else {
+        errorDetail = await response.text(); // Fallback to raw text if not JSON
+      }
+      throw new Error(`API call failed with status ${response.status}: ${errorDetail}`);
     }
 
-    // Check if the response is JSON before attempting to parse
+    // Proceed to parse JSON assuming the response is successful and content type is JSON
     if (response.headers.get("content-type")?.includes("application/json")) {
-      return response.json();
+      return await response.json();
     } else {
       throw new Error("Received non-JSON response");
     }
   } catch (error) {
-    console.error("Fetch error:", error);
-    throw error; // Re-throw the error for further handling or logging
+    console.error("Fetch error:", error.message);
+    throw error; // Re-throw the error to handle it elsewhere if necessary
   }
 }
 
