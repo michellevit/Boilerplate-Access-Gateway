@@ -12,7 +12,7 @@ async function verifyGumroadLicense(license_key, product_id) {
   const body = JSON.stringify({
     product_id: product_id,
     license_key: license_key,
-    increment_uses_count: false,
+    increment_uses_count: "false",
   });
 
  // NEW CODE
