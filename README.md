@@ -1,4 +1,4 @@
-# Gumroad License Authenticator
+# Boilerplate Access Gateway
 
 ![Next.js Version](https://img.shields.io/badge/Next.js-14.1.4-blue.svg)
 ![Node.js Version](https://img.shields.io/badge/Node.js-18-green.svg)
@@ -6,7 +6,7 @@
 ![Gumroad API](https://img.shields.io/badge/API-Gumroad-lightgrey.svg)
 ![Heroku](https://img.shields.io/badge/Platform-Heroku-lightgrey.svg)
 
-This project facilitates access to several Boilerplate Code Template Repositories for license holders via Gumroad.
+This project provides access to several Boilerplate Code Template Repositories for license holders via Gumroad.
 
 ## Table of Contents
 - [Setup](#setup)
@@ -35,41 +35,14 @@ This project facilitates access to several Boilerplate Code Template Repositorie
     - To add changes: `git add .`
     - To commit change: `git commit -m "Your message"`
     - To push changes to GitHub: `git push origin main`
-- Connect local project to new GitHub repo
-  - Create a new repository on GitHub
-<<<<<<< HEAD
-    - Note: Don't initialize it with a README, .gitignore, or license file since the project already contains these files
-  - Open a new terminal + navigate to the new project's root dir
-  - Run: 
-    - `git remote set-url origin [HTTPS url from your new GitHub repo]`
-    - `git add .`
-    - `git commit -m "Initial commit"`
-    - `git push -u origin main`
-- Create an account with Heroku
-  - Create a new app for your project
-  - Set up the app
-    - Deploy Tab:
-      - In the Deployment method section, select GitHub (connect to GitHub)
-      - Connect to your GitHub and search for the repo you created + connect it
-      -	Click the button ‘Enable Automatic Deploys’
-    - Settings Tab: 
-      - In the Buildpack section: 
-        - Add buildpack: nodejs
-    - Configure SSL:
-      - Select ‘Automatic Certificate Management’ and click next
-    - Optional: set a custom domain:
-      - Click add domain, enter the domain name, click next
-      - If the domain is a Root domain: ALIAS
-      - If the domain is a non-root domain: CNAME
-=======
-  - Change the local GitHub origin (from original cloned repo to new repo)
-  - git add .
-  - git commit -m "Initial commit"
-  - git branch -M main
-  - git push origin main
 - Setup on Heroku
-  - Nodejs buildpack
-  - Custom domain: tokenizer.michellef.dev
+  - Create new Heroku app
+  - Resources Tab: Connect to GitHub repo + enable automatic deploys
+  - Settings Tab - Config Vars: Add GITHUB_API_TOKEN key/value
+  - Settings Tab - Config Vars: Add GITHUB_USERNAME key/value
+  - Settings Tab - Buildpacks: Add nodejs buildpack
+  - Settings Tab - SSL Certificates: Configure Certificate -> Select 'Automate Certificate Management'
+  - Settings Tab - Domains: connect to custom domain (OPTIONAL)
 - Create product on Gumroad
   - Add custom field:
     - Go to Checkout tab in menu -> add custom field for specified product: GitHub Username
@@ -85,7 +58,8 @@ This project facilitates access to several Boilerplate Code Template Repositorie
     - Go to Settings in menu bar on left
     - Go to Advanced Tab
     - In the 'Ping' section, add endpoint for ping script: 
-      - https://tokenizer.michellef.dev/api/gumroad-ping
+      - Example: https://[custom-domain].com/api/gumroad-ping
+      - Example: https://[heroku-app-url].herokuapp.com/api/gumroad-ping
     
 
 
@@ -94,6 +68,3 @@ This project facilitates access to several Boilerplate Code Template Repositorie
 - activate-license.js: add product_id mapping for rails boilerplate
 - Add link to video tutorial to product content (user's post-purchase page) and details page
 - gumroad-ping.js: add rate limiting
->>>>>>> a21fd817a192fca5a74247fd9d2a84d3621681ad
-
-
