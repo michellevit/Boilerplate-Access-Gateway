@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const BASE_API = `https://api.gumroad.com`;
 const VERIFY_ENDPOINT = `v2/licenses/verify`;
 
-function verifyGumroadLicense(license_key, product_id) {
+async function verifyGumroadLicense(license_key, product_id) {
 
   const url = `${BASE_API}/${VERIFY_ENDPOINT}`;
   
@@ -16,14 +16,15 @@ function verifyGumroadLicense(license_key, product_id) {
     license_key: license_key,
     increment_uses_count: false,
   });
-  
-  return fetch(url, {
+
+  const response = await fetch(url, {
     method: `POST`,
     headers,
     body,
-  }).then(response => response.json());
-}
+  });
 
+  return response.json();
+}
 export default verifyGumroadLicense;
 
 
