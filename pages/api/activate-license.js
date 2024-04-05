@@ -27,10 +27,7 @@ async function activateLicense({ license_key, githubUsername, product_id }) {
     `License Key submitted for activation. Verifying License...`
   );
 
-  const license = await verifyGumroadLicense({
-    license_key,
-    product_id,
-  });
+  const license = await verifyGumroadLicense(license_key, product_id);
 
   if (license.uses > 2) {
     throw new Error(`License has already been redeemed`);
