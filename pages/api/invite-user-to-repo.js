@@ -12,7 +12,7 @@ function inviteUserToRepository({ owner, repo, githubUsername }) {
   return octokit.request(endpointUrl, {
     owner: owner,
     repo: repo,
-    username: username,
+    username: githubUsername,
     permission: 'pull', // Set permission to 'pull' for read-only access
   });
 }
