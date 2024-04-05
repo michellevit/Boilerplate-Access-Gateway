@@ -5,11 +5,15 @@ function inviteUserToRepository({ owner, repo, username }) {
     auth: process.env.GITHUB_API_TOKEN,
   });
 
-  return octokit.request('PUT /repos/{owner}/{repo}/collaborators/{username}', {
+  const endpointUrl = `PUT /repos/${owner}/${repo}/collaborators/${username}`;
+  
+  console.log('Endpoint URL:', endpointUrl);
+
+  return octokit.request(endpointUrl, {
     owner: owner,
     repo: repo,
     username: username,
-    permission: 'pull',
+    permission: 'pull', // Set permission to 'pull' for read-only access
   });
 }
 
