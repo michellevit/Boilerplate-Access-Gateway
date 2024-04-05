@@ -34,6 +34,7 @@
 - gumroad-ping.js: remove the console log logging the ping data
 - activate-license.js: add product_id mapping for rails boilerplate
 - verify-gumroad-license.js: change increment_uses_count to true
+- Add link to video tutorial to product content (user's post-purchase page) and details page
 - index.js: improve
 - gumroad-ping.js: add rate limiting
 
