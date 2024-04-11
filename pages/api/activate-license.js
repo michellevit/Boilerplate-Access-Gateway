@@ -7,7 +7,7 @@ async function activateLicense({ license_key, githubUsername, product_id }) {
   
   const productToRepoMap = {
     "TycqIdYZ_hocg_O_7LFh9Q==": "Boilerplate-Django-React-Heroku",
-    XXX: "Boilerplate-Rails-React-Heroku",
+    "VyBMGv2jrjX8xRfDg5qplQ==": "Boilerplate-Rails-React-Heroku",
   };
 
   const repo = productToRepoMap[product_id];

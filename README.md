@@ -6,7 +6,7 @@
 ![Gumroad API](https://img.shields.io/badge/API-Gumroad-lightgrey.svg)
 ![Heroku](https://img.shields.io/badge/Platform-Heroku-lightgrey.svg)
 
-This project facilitates access to several Boilerplate Code Template Repositories, on GitHub, for license holders via Gumroad.
+This project provides access to several Boilerplate Code Template Repositories for license holders via Gumroad.
 
 ## Table of Contents
 - [Setup](#setup)
@@ -35,20 +35,15 @@ This project facilitates access to several Boilerplate Code Template Repositorie
     - To add changes: `git add .`
     - To commit change: `git commit -m "Your message"`
     - To push changes to GitHub: `git push origin main`
-- Connect local project to new GitHub repo
-  - Create a new repository on GitHub
-  - Change the local GitHub origin (from original cloned repo to new repo)
-  - git add .
-  - git commit -m "Initial commit"
-  - git branch -M main
-  - git push origin main
 - Setup on Heroku
-  - Nodejs buildpack
-  - Custom domain: tokenizer.michellef.dev
+  - Create new Heroku app
+  - Resources Tab: Connect to GitHub repo + enable automatic deploys
+  - Settings Tab - Config Vars: Add GITHUB_API_TOKEN key/value
+  - Settings Tab - Config Vars: Add GITHUB_USERNAME key/value
+  - Settings Tab - Buildpacks: Add nodejs buildpack
+  - Settings Tab - SSL Certificates: Configure Certificate -> Select 'Automate Certificate Management'
+  - Settings Tab - Domains: connect to custom domain (OPTIONAL)
 - Create product on Gumroad
-  - Add custom field:
-    - Go to Checkout tab in menu -> add custom field for specified product: GitHub Username
-    - https://app.gumroad.com/checkout/form
   - Create Product
     - Product Tab
       - Add product description, thumbnail, price, etc
@@ -60,7 +55,11 @@ This project facilitates access to several Boilerplate Code Template Repositorie
     - Go to Settings in menu bar on left
     - Go to Advanced Tab
     - In the 'Ping' section, add endpoint for ping script: 
-      - https://tokenizer.michellef.dev/api/gumroad-ping
+      - Example: https://[custom-domain].com/api/gumroad-ping
+      - Example: https://[heroku-app-url].herokuapp.com/api/gumroad-ping
+  - Add custom field:
+    - Go to Checkout tab in menu -> add custom field for specified product: GitHub Username
+    - https://app.gumroad.com/checkout/form
     
 
 
@@ -69,5 +68,3 @@ This project facilitates access to several Boilerplate Code Template Repositorie
 - activate-license.js: add product_id mapping for rails boilerplate
 - Add link to video tutorial to product content (user's post-purchase page) and details page
 - gumroad-ping.js: add rate limiting
-
-
