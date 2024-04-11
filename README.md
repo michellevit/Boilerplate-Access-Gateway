@@ -1,4 +1,4 @@
-# Gumroad License Authenticator
+# Boilerplate Access Gateway
 
 ![Next.js Version](https://img.shields.io/badge/Next.js-14.1.4-blue.svg)
 ![Node.js Version](https://img.shields.io/badge/Node.js-18-green.svg)
@@ -6,7 +6,7 @@
 ![Gumroad API](https://img.shields.io/badge/API-Gumroad-lightgrey.svg)
 ![Heroku](https://img.shields.io/badge/Platform-Heroku-lightgrey.svg)
 
-This project facilitates access to several Boilerplate Code Template Repositories for license holders via Gumroad.
+This project facilitates access to several Boilerplate Code Template Repositories, on GitHub, for license holders via Gumroad.
 
 ## Table of Contents
 - [Setup](#setup)
