@@ -65,6 +65,6 @@ This project provides access to several Boilerplate Code Template Repositories f
 
 ## To Do<a name="todo"></a>
 - Gumroad: Update ping endpoint to DNS corrrect one
-- activate-license.js: add product_id mapping for rails boilerplate
+- Create video tutorial
 - Add link to video tutorial to product content (user's post-purchase page) and details page
 - gumroad-ping.js: add rate limiting
