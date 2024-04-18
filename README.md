@@ -3,7 +3,8 @@
 ![Next.js Version](https://img.shields.io/badge/Next.js-14.1.4-blue.svg)
 ![Node.js Version](https://img.shields.io/badge/Node.js-18-green.svg)
 ![React Version](https://img.shields.io/badge/React-18.2.0-blue.svg)
-![Gumroad API](https://img.shields.io/badge/API-Gumroad-lightgrey.svg)
+![Gumroad API](https://img.shields.io/badge/API-Gumroad-pink.svg)
+![GitHub API](https://img.shields.io/badge/API-GitHub-black.svg)
 ![Heroku](https://img.shields.io/badge/Platform-Heroku-lightgrey.svg)
 
 This project provides access to several Boilerplate Code Template Repositories for license holders via Gumroad.
