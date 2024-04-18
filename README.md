@@ -2,7 +2,7 @@
 
 ![Next.js Version](https://img.shields.io/badge/Next.js-14.1.4-blue.svg)
 ![Node.js Version](https://img.shields.io/badge/Node.js-18-green.svg)
-![TypeScript](https://img.shields.io/badge/TypeScript-4.5.4-blue.svg)
+![React Version](https://img.shields.io/badge/React-18.2.0-blue.svg)
 ![Gumroad API](https://img.shields.io/badge/API-Gumroad-lightgrey.svg)
 ![Heroku](https://img.shields.io/badge/Platform-Heroku-lightgrey.svg)
 
